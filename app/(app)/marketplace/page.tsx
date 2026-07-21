@@ -121,22 +121,22 @@ export default function MarketplacePage() {
     : listings.filter(l => l.category === selectedCategory)
 
   return (
-    <div className="container py-8 max-w-6xl mx-auto px-4">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+    <div className="container py-6 md:py-8 max-w-6xl mx-auto px-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-3xl font-black tracking-tight text-zinc-900">MTB Marketplace Nepal</h1>
-          <p className="text-sm text-zinc-600 mt-1">Buy and sell bikes, components, accessories, and gear directly from local riders and shops.</p>
+          <h1 className="text-2xl md:text-3xl font-black tracking-tight text-zinc-900">MTB Marketplace Nepal</h1>
+          <p className="text-xs md:text-sm text-zinc-600 mt-1">Buy and sell bikes, components, accessories, and gear directly from local riders and shops.</p>
         </div>
         <Button 
           onClick={() => setShowModal(true)} 
-          className="bg-orange-600 hover:bg-orange-700 font-bold rounded-xl flex items-center gap-2 shadow-md shadow-orange-600/20"
+          className="bg-orange-600 hover:bg-orange-700 font-bold rounded-xl flex items-center justify-center gap-2 shadow-md shadow-orange-600/20 w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" /> List Item for Sale
         </Button>
       </div>
 
       {/* Category Filter Pills */}
-      <div className="flex gap-2 overflow-x-auto pb-4 mb-6">
+      <div className="flex gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
         {['all', 'bike', 'component', 'accessory', 'rental'].map(cat => (
           <button
             key={cat}
@@ -150,8 +150,8 @@ export default function MarketplacePage() {
 
       {/* List Item Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+          <div className="bg-white rounded-2xl max-w-xl w-full p-5 sm:p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
             <button 
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-600 p-1"
@@ -159,8 +159,8 @@ export default function MarketplacePage() {
               <X className="w-5 h-5" />
             </button>
 
-            <h2 className="text-xl font-bold text-zinc-900 mb-1">List Bike / Item for Sale</h2>
-            <p className="text-xs text-zinc-500 mb-6">Fill in details. Accessible to all community members.</p>
+            <h2 className="text-lg sm:text-xl font-bold text-zinc-900 mb-1">List Bike / Item for Sale</h2>
+            <p className="text-xs text-zinc-500 mb-4 sm:mb-6">Fill in details. Accessible to all community members.</p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -173,7 +173,7 @@ export default function MarketplacePage() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold text-zinc-700 block mb-1">Category</label>
                   <select
@@ -200,7 +200,7 @@ export default function MarketplacePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold text-zinc-700 block mb-1">Condition</label>
                   <select
@@ -225,7 +225,7 @@ export default function MarketplacePage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold text-zinc-700 block mb-1">Contact Person Name</label>
                   <Input
@@ -308,7 +308,7 @@ export default function MarketplacePage() {
 
       {/* Grid of Listings */}
       {loading ? (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map(i => (
             <div key={i} className="h-80 rounded-2xl bg-zinc-100 animate-pulse" />
           ))}
@@ -318,7 +318,7 @@ export default function MarketplacePage() {
           <p className="text-zinc-500 font-medium">No items found in this category.</p>
         </div>
       ) : (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredListings.map(listing => (
             <Card key={listing.id} className="overflow-hidden border-zinc-200 shadow-sm rounded-2xl flex flex-col justify-between hover:shadow-md transition-all">
               <div>
@@ -336,7 +336,7 @@ export default function MarketplacePage() {
                   </div>
                 </div>
 
-                <CardContent className="p-5">
+                <CardContent className="p-4 sm:p-5">
                   <h3 className="font-bold text-base text-zinc-900 line-clamp-1 mb-1">{listing.title}</h3>
                   <p className="text-xs text-zinc-500 line-clamp-2 mb-4">{listing.description}</p>
 

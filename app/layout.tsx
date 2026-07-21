@@ -1,5 +1,6 @@
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
+import { MobileNav } from '@/components/mobile-nav'
 import { AuthProvider } from '@/lib/auth-context'
 
 export const metadata = {
@@ -10,10 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#fcfaf8] font-sans antialiased text-zinc-900">
+      <body className="min-h-screen bg-[#fcfaf8] font-sans antialiased text-zinc-900 pb-16 lg:pb-0">
         <AuthProvider>
           <SiteHeader />
           <main className="min-h-[calc(100vh-160px)]">{children}</main>
+          <MobileNav />
           <footer className="border-t mt-20 py-10 text-center text-xs text-zinc-500 bg-white">
             Built for Nepal MTB community • Kathmandu • Open source • v1.0 MVP
           </footer>
