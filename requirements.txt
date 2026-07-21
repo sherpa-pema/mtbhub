@@ -1,0 +1,6 @@
+# This is a Next.js + Supabase project (Node.js)
+# No Python dependencies required to run the app.
+# This file is included as requested.
+# If you use Python scripts for data import, you can add:
+# supabase==2.9.1
+# gpxpy==1.5.0
