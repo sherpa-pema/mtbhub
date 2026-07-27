@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Mountain, User, LogOut, Store, Compass, Calendar, ShoppingBag, Map, MessageSquare } from 'lucide-react'
+import { Mountain, User, LogOut, Store, Compass, Calendar, ShoppingBag, Map, MessageSquare, Trophy } from 'lucide-react'
 import { useAuth } from '@/lib/auth-context'
 
 export function SiteHeader() {
@@ -68,6 +68,12 @@ export function SiteHeader() {
               className={`flex items-center gap-1.5 py-1 px-3 rounded-full transition-all ${pathname.startsWith('/tours') ? 'bg-orange-600 text-white font-semibold' : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'}`}
             >
               <Compass className="w-4 h-4" /> Tours
+            </Link>
+            <Link 
+              href="/hall-of-fame" 
+              className={`flex items-center gap-1.5 py-1 px-3 rounded-full transition-all ${pathname.startsWith('/hall-of-fame') ? 'bg-orange-600 text-white font-semibold' : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'}`}
+            >
+              <Trophy className="w-4 h-4" /> HoF
             </Link>
           </nav>
         </div>

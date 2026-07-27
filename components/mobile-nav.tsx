@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MessageSquare, Map, Calendar, Store, ShoppingBag, Compass } from 'lucide-react'
+import { MessageSquare, Map, Calendar, Store, ShoppingBag, Compass, Trophy } from 'lucide-react'
 
 export function MobileNav() {
   const pathname = usePathname()
@@ -14,6 +14,7 @@ export function MobileNav() {
     { label: 'Shops', href: '/directory', icon: Store },
     { label: 'Market', href: '/marketplace', icon: ShoppingBag },
     { label: 'Tours', href: '/tours', icon: Compass },
+    { label: 'HoF', href: '/hall-of-fame', icon: Trophy },
   ]
 
   return (
